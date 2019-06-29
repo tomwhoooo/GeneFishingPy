@@ -76,18 +76,14 @@ def gene_fishing(bait_genes, pool_genes, alpha = 5, k = 2,
         elif affinity == "Cosine":
             bait_pool_gene_corr_mat = \
             sklearn.metrics.pairwise.cosine_similarity(np.transpose(bait_pool_gene_expr_mat))
-        else:
-            print("Incorrect affinity matrix specification")
-            return
+
         if cluster == "Spectral":
             cluster_result = np.array([kmeans2(get_spectral_coor(bait_pool_gene_corr_mat), 2)[1]])
         elif cluster == "K-means":
             cluster_result = np.array([kmeans2(bait_pool_gene_corr_mat, 2)[1]])
         elif cluster == "PIC":
             cluster_result = np.array([kmeans2(pic(bait_pool_gene_corr_mat), 2)[1]])
-        else:
-            print("Incorrect cluster algorithm specification")
-            return
+
         cluster_df = pd.DataFrame((cluster_result), columns = bait_genes + list(shuffled_idx[i]))
         bait_majority = collections.Counter(cluster_df[bait_genes].values[0]).most_common(1)[0][0]
         check_pool = (cluster_df == bait_majority)[shuffled_idx[i]]

@@ -53,9 +53,10 @@ def main():
 		for j in range(number_of_iteration):
     		if j % 10 == 0:
         	print('at iteration ' + str(j))
-    		utils.gene_fishing(bait_genes, pool_genes, meta_recorder)
+    		utils.gene_fishing(bait_genes, pool_genes, alpha = alpha, k = number_of_cluster,
+    			cluster = way_of_cluster, affinity = affinity_matrix)
 			file_name = output_prefix + '/' + tissues + '_CFR.csv'
-			meta_recorder.to_csv(file_name)
+		meta_recorder.to_csv(file_name)
 
 
 if __name__ == '__main__':
