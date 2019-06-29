@@ -13,4 +13,5 @@ If you would like to tune parameters, please use ```python GeneFishingPy.py /dat
 
 An example would be:
 
-```python GeneFishingPy.py /data/csv_data /data/c1.csv /CFR --number_of_iteration 100 --way_of_cluster K-means``` to decrease the number of iterations from 1000 to 100 and change the clustering method as pure k-means in order to save computational time.
+```python GeneFishingPy.py /data/csv_data /data/c1.csv /CFR --number_of_iteration 100 --way_of_cluster K-means``` 
+to decrease the number of iterations from 1000 to 100 and change the clustering method as pure k-means in order to save computational time.
